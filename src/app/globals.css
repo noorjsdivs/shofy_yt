@@ -1,0 +1,11 @@
+@import "./base.css";
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@layer components {
+  .headerTopMenu {
+    @apply flex items-center gap-x-1 border-r-[1px] border-r-gray-400 px-4;
+  }
+}
