@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ProductType } from "../../type";
-import toast from "react-hot-toast";
 
 interface InitialState {
   cart: ProductType[];

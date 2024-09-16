@@ -7,7 +7,7 @@ const CartPage = async () => {
   const session = await getServerSession();
 
   if (!session) {
-    redirect("/");
+    return redirect("/");
   }
 
   return (

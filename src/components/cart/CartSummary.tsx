@@ -49,7 +49,6 @@ const CartSummary = ({ cart }: Props) => {
     const result: any = await stripe?.redirectToCheckout({
       sessionId: checkoutSession.id,
     });
-    console.log("result", result);
 
     if (result.error) {
       alert(result?.error?.message);
@@ -62,7 +61,7 @@ const CartSummary = ({ cart }: Props) => {
       <div className="mt-5 flex flex-col gap-3">
         <div className="flex items-center justify-between">
           <Title className="text-lg font-medium">Sub Total</Title>
-          <PriceFormat amount={totalAmt + discountAmt} />
+          <PriceFormat amount={totalAmt} />
         </div>
         <div className="flex items-center justify-between">
           <Title className="text-lg font-medium">Discount</Title>
@@ -70,7 +69,10 @@ const CartSummary = ({ cart }: Props) => {
         </div>
         <div className="flex items-center justify-between">
           <Title className="text-lg font-medium">Payable Amount</Title>
-          <PriceFormat amount={totalAmt} className="text-lg font-bold" />
+          <PriceFormat
+            amount={totalAmt - discountAmt}
+            className="text-lg font-bold"
+          />
         </div>
         <Button onClick={handleCheckout}>Checkout</Button>
       </div>
